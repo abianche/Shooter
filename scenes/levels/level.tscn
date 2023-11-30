@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://sol7eyprad42"]
+[gd_scene load_steps=18 format=3 uid="uid://sol7eyprad42"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_8h5fw"]
 [ext_resource type="Texture2D" uid="uid://mhabgdj51ii4" path="res://graphics/ground/stones.png" id="2_0vayy"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://b1rxn4kithw35" path="res://graphics/tilesets/outside_walls.png" id="9_78wce"]
 [ext_resource type="Texture2D" uid="uid://der6mlgpo8lqn" path="res://graphics/tilesets/soil.png" id="10_pr6bg"]
 [ext_resource type="PackedScene" uid="uid://0cx1obxwhd4a" path="res://scenes/houses/house.tscn" id="11_mmplu"]
+[ext_resource type="PackedScene" uid="uid://c2dwb7xfgbhui" path="res://scenes/objects/steam_vent.tscn" id="12_hj2n3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tgcey"]
 resource_name = "walls"
@@ -55,7 +56,7 @@ script = ExtResource("1_8h5fw")
 
 [node name="Soil" type="Sprite2D" parent="Ground"]
 texture_repeat = 2
-position = Vector2(565, 845)
+position = Vector2(311, 675)
 scale = Vector2(2.65001, 1.92366)
 texture = ExtResource("2_0vayy")
 region_enabled = true
@@ -77,7 +78,7 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(196621, 65536, 0, 262157, 0, 3, -131066, 0, 2, -196602, 0, 2, -262138, 0, 2, -327674, 0, 1, 131083, 0, 2, 65547, 131072, 1, 65542, 65536, 2, 65543, 65536, 0, 65544, 65536, 0, 65545, 65536, 0, 65546, 65536, 0, 196619, 65536, 2, 196620, 65536, 0, 196622, 65536, 0, 196623, 131072, 2, 131087, 0, 1, -65530, 0, 2, 6, 0, 2, 65527, 0, 0, 65528, 65536, 0, 65529, 65536, 0, 65530, 65536, 0, 65531, 65536, 0, 65532, 131072, 0)
+layer_1/tile_data = PackedInt32Array(196621, 65536, 0, -131066, 0, 2, -196602, 0, 2, -262138, 0, 2, -327674, 0, 1, 131083, 0, 2, 65547, 131072, 1, 65542, 65536, 2, 65543, 65536, 0, 65544, 65536, 0, 65545, 65536, 0, 65546, 65536, 0, 196619, 65536, 2, 196620, 65536, 0, 196622, 65536, 0, 196623, 131072, 2, 131087, 0, 1, -65530, 0, 2, 6, 0, 2, 65527, 0, 0, 65528, 65536, 0, 65529, 65536, 0, 65530, 65536, 0, 65531, 65536, 0, 65532, 131072, 0)
 
 [node name="Moss1" type="Sprite2D" parent="Ground"]
 position = Vector2(2514, 712)
@@ -109,8 +110,11 @@ position = Vector2(4337, 748)
 texture = ExtResource("5_h2gbw")
 
 [node name="House" parent="Ground" instance=ExtResource("11_mmplu")]
-position = Vector2(-1670, 3441)
+position = Vector2(-704, 3754)
 rotation = -2.53945
+
+[node name="SteamVent" parent="Ground" instance=ExtResource("12_hj2n3")]
+position = Vector2(157, 488)
 
 [node name="Gate" parent="." instance=ExtResource("2_t88dp")]
 
