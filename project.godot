@@ -12,13 +12,20 @@ config_version=5
 
 config/name="Shooter"
 run/main_scene="res://scenes/levels/level.tscn"
-config/features=PackedStringArray("4.1", "Mobile")
+config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+
+[file_customization]
+
+folder_colors={
+"res://graphics/": "yellow",
+"res://scenes/": "blue"
+}
 
 [input]
 
