@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://rp2pn3yfw70j"]
+[gd_scene load_steps=9 format=3 uid="uid://rp2pn3yfw70j"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_gk608"]
 [ext_resource type="Texture2D" uid="uid://cervbtxvl6k2w" path="res://graphics/player/player.png" id="1_komsp"]
@@ -24,6 +24,9 @@ orbit_velocity_max = 0.0
 scale_min = 0.3
 scale_max = 0.8
 color_ramp = SubResource("GradientTexture1D_ensfi")
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ea6cv"]
+polygon = PackedVector2Array(-13, -65, -37, -53, -56, -38, -64, -19, -67, 6, -56, 33, -39, 50, -28, 57, -10, 55, 20, 48, 44, 37, 61, 48, 92, 49, 95, 41, 103, 34, 108, 33, 130, 32, 134, 15, 130, -2, 106, -8, 84, -15, 73, -14, 53, -29, 31, -52, 21, -64)
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 31
@@ -63,6 +66,9 @@ process_material = SubResource("ParticleProcessMaterial_5rtp7")
 texture = ExtResource("3_pws6d")
 lifetime = 0.1
 one_shot = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_ea6cv")
 
 [connection signal="timeout" from="TimerLaser" to="." method="_on_timer_laser_timeout"]
 [connection signal="timeout" from="TimerGrenade" to="." method="_on_timer_grenade_timeout"]

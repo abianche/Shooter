@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://csuo06s7b3m45"]
+
+[ext_resource type="Texture2D" uid="uid://c27cqnhhro2e5" path="res://graphics/objects/light.png" id="1_3wx17"]
+[ext_resource type="Texture2D" uid="uid://5x6mut2pdok4" path="res://graphics/lights/textures/circle.png" id="2_r7ck7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y8e0t"]
+radius = 17.0
+height = 196.0
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_fwqik"]
+polygon = PackedVector2Array(-73, 13, -91, 12, -99, 2, -95, -10, -79, -17, 78, -17, 91, -12, 97, -4, 92, 11, 82, 15, 75, 15, 74, -3, 70, -8, -75, -9)
+
+[node name="SimpleLight" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_y8e0t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3wx17")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.486275, 0.807843, 0.92549, 1)
+energy = 6.69
+shadow_enabled = true
+shadow_color = Color(0.00784314, 0.0980392, 0.211765, 0.027451)
+shadow_filter = 1
+shadow_filter_smooth = 1.1
+texture = ExtResource("2_r7ck7")
+texture_scale = 3.0
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_fwqik")
