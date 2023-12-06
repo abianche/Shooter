@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://cqpxkfkioda4l" path="res://graphics/ground/dirt.png" id="2_e5ig4"]
 [ext_resource type="TileSet" uid="uid://30wgpv4hmp2y" path="res://scenes/levels/house.tres" id="2_grmg2"]
 [ext_resource type="Script" path="res://scenes/levels/inside.gd" id="2_odoy1"]
-[ext_resource type="PackedScene" uid="uid://bsuj01snbkka7" path="res://scenes/levels/outside.tscn" id="3_5x3gi"]
 [ext_resource type="PackedScene" uid="uid://dauqy30tsyofc" path="res://scenes/objects/light_fan_animation.tscn" id="4_t8ahx"]
 [ext_resource type="PackedScene" uid="uid://d1tfj5tmuj80" path="res://scenes/objects/wall_lamp.tscn" id="4_wyc0r"]
 [ext_resource type="PackedScene" uid="uid://csuo06s7b3m45" path="res://scenes/objects/simple_light.tscn" id="5_dqfdk"]
@@ -12,13 +11,13 @@
 [ext_resource type="Texture2D" uid="uid://b1h0ju71efwkh" path="res://graphics/lights/overlays/hole.png" id="6_ciejn"]
 [ext_resource type="Texture2D" uid="uid://5x6mut2pdok4" path="res://graphics/lights/textures/circle.png" id="6_k7m6l"]
 [ext_resource type="Texture2D" uid="uid://pu40iu6pmoen" path="res://graphics/lights/overlays/lattice.png" id="7_p8ted"]
+[ext_resource type="PackedScene" uid="uid://d0wsh48a5g3ok" path="res://scenes/items/item.tscn" id="12_bitko"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yp7xe"]
 size = Vector2(296.5, 717)
 
 [node name="Inside" instance=ExtResource("1_5hf61")]
 script = ExtResource("2_odoy1")
-outside_level_scene = ExtResource("3_5x3gi")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground" index="0"]
 texture_repeat = 2
@@ -90,25 +89,22 @@ texture_scale = 3.0
 
 [node name="Lights" parent="." index="3"]
 metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="LightFanAnimation" parent="Lights" index="0" instance=ExtResource("4_t8ahx")]
 position = Vector2(6098, 457)
-metadata/_edit_lock_ = true
 
 [node name="LightFanAnimation2" parent="Lights" index="1" instance=ExtResource("4_t8ahx")]
 position = Vector2(1284, 1953)
-metadata/_edit_lock_ = true
 
 [node name="LightFanAnimation3" parent="Lights" index="2" instance=ExtResource("4_t8ahx")]
 position = Vector2(-571, -285)
-metadata/_edit_lock_ = true
 
 [node name="Infrastructure" type="Sprite2D" parent="Lights" index="3"]
 modulate = Color(1, 1, 1, 0.113725)
 position = Vector2(5198, 1160.5)
 scale = Vector2(2.944, 4.73599)
 texture = ExtResource("5_vq2br")
-metadata/_edit_lock_ = true
 
 [node name="Infrastructure2" type="Sprite2D" parent="Lights" index="4"]
 modulate = Color(1, 1, 1, 0.113725)
@@ -116,35 +112,30 @@ position = Vector2(1428, -2312)
 rotation = 1.57079
 scale = Vector2(2.944, 11.0987)
 texture = ExtResource("5_vq2br")
-metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Lights" index="5"]
 modulate = Color(0.941176, 0.623529, 0.619608, 0.0705882)
 position = Vector2(2838, -99)
 scale = Vector2(10.1794, 10.1794)
 texture = ExtResource("6_ciejn")
-metadata/_edit_lock_ = true
 
 [node name="Sprite2D2" type="Sprite2D" parent="Lights" index="6"]
 modulate = Color(0.941176, 0.623529, 0.619608, 0.0705882)
 position = Vector2(832, 3611)
 scale = Vector2(5.96413, 5.96413)
 texture = ExtResource("6_ciejn")
-metadata/_edit_lock_ = true
 
 [node name="Lattice" type="Sprite2D" parent="Lights" index="7"]
 modulate = Color(1, 1, 1, 0.0784314)
 position = Vector2(4045, 2220)
 scale = Vector2(2.35216, 2.18405)
 texture = ExtResource("7_p8ted")
-metadata/_edit_lock_ = true
 
 [node name="Lattice2" type="Sprite2D" parent="Lights" index="8"]
 modulate = Color(1, 1, 1, 0.0784314)
 position = Vector2(4011, -1621)
 scale = Vector2(2.35216, 2.18405)
 texture = ExtResource("7_p8ted")
-metadata/_edit_lock_ = true
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="4"]
 color = Color(0.768627, 0.815686, 0.858824, 1)
@@ -157,5 +148,8 @@ position = Vector2(7262, 502)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitGateArea" index="0"]
 position = Vector2(-131.75, -113)
 shape = SubResource("RectangleShape2D_yp7xe")
+
+[node name="Item" parent="." index="7" instance=ExtResource("12_bitko")]
+position = Vector2(5919, 886)
 
 [connection signal="body_entered" from="ExitGateArea" to="." method="_on_exit_gate_area_body_entered"]

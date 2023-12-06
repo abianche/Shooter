@@ -21,3 +21,6 @@ func _on_player_grenade(pos, dir) -> void:
 	$UI.update_grenade_text()
 
 
+func _on_player_update_stats() -> void:
+	$UI.update_laser_text()
+	$UI.update_grenade_text()
